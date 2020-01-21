@@ -1,46 +1,56 @@
 import React from 'react'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import styled from 'styled-components'
 import '../styles/main.scss'
 
+const FlareComponent: any = dynamic(() => import('flare-react'), {
+  ssr: false
+})
+
 const Home = () => (
-  <div>
+  <main>
     <Head>
       <title>Antive</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Hero>
-      <Eyes>👀</Eyes>
-    </Hero>
+    <Eyes>
+      <FlareComponent
+        width={420}
+        height={420}
+        animationName="Untitled"
+        file="/curious-eyes.flr"
+        transparent={true}
+      />
+    </Eyes>
+
+    <Caption>Careful, he is watching.</Caption>
 
     <style jsx>{`
       body {
         background-color: #000;
       }
-      .hero {
-        width: 100%;
-        color: black;
-      }
-      .eyes {
-        align-self: center;
+
+      main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     `}</style>
-  </div>
+  </main>
 )
 
-const Eyes = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  font-size: 7.5rem;
-  transform: translate(-50%, -50%);
+const Caption = styled.p`
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
 `
 
-const Hero = styled.div`
-  background: black;
-  width: 100vw;
-  height: 100vh;
+const Eyes = styled.div`
+  margin: 0 auto;
 `
 
 export default Home
