@@ -27,6 +27,8 @@ const Home = () => (
 
     <Caption>Careful, he is watching.</Caption>
 
+    <audio src="/heavy-breathing.mp3" loop autoPlay />
+
     <style jsx>{`
       body {
         background-color: #000;
