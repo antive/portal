@@ -27,6 +27,8 @@ const Home = () => (
 
     <Caption>Careful, he is watching.</Caption>
 
+    <Footer>Antive | 2020</Footer>
+
     <style jsx>{`
       body {
         background-color: #000;
@@ -51,6 +53,13 @@ const Caption = styled.p`
 
 const Eyes = styled.div`
   margin: 0 auto;
+`
+
+const Footer = styled.footer`
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  color: grey;
+  text-align: center;
 `
 
 export default Home
